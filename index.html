@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>City Care Hospital</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏥 City Care Hospital</h1>
+
+<h3>Hospital Appointment Booking System</h3>
+
+<!-- ================= Voice Booking ================= -->
+
+<div class="voice-card">
+
+<h2 >🎙️ Book Appointment by Voice</h2>
+
+<p class="vc-sub">
+
+Skip typing! Enter your mobile number and our AI assistant will call you instantly.
+Complete your appointment booking in English or हिन्दी within a minute.
+
+</p>
+
+<div class="vc-langs">
+
+<button type="button"
+class="sel"
+onclick="vcSetLang('en',this)">
+
+🇬🇧 English
+
+</button>
+
+<button type="button"
+onclick="vcSetLang('hi',this)">
+
+🇮🇳 हिन्दी
+
+</button>
+
+</div>
+
+<div class="vc-phone">
+
+<div class="cc">
+
++91
+
+</div>
+
+<input
+
+id="vc-phone"
+type="tel"
+maxlength="10"
+placeholder="Enter Mobile Number">
+
+</div>
+
+<div class="vc-err" id="vc-err">
+
+Please enter a valid 10 digit mobile number.
+
+</div>
+
+<button
+type="button"
+class="vc-call"
+onclick="vcStartCall()">
+
+📞 Request Voice Call
+
+</button>
+
+<div class="vc-note">
+
+    Our AI assistant will call you shortly to book your appointment.
+    Calls may be recorded for appointment confirmation and quality purposes.
+
+</div>
+
+</div>
+
+<div class="vc-or">
+
+OR
+
+</div>
+
+<h2 class="form-title">
+    📝 Fill the Appointment Form Below
+</h2>
+<form action="NewServlet" method="post">
+<label>Patient Name</label>
+<input type="text" name="name" placeholder="Enter Patient Name" required>
+
+
+<label>Email</label>
+<input type="email" name="email" placeholder="Enter Email Address" required>
+
+
+<label>Phone Number</label>
+<input type="tel" name="mobile"
+placeholder="Enter Mobile Number"
+pattern="[0-9]{10}"
+maxlength="10"
+required>
+
+
+<label>Age</label>
+<input type="number" name="age"
+min="1"
+max="120"
+placeholder="Enter Age"
+required>
+
+
+<label>Gender</label>
+
+
+<div class="gender">
+
+
+<input type="radio" name="gender" value="Male" required> Male
+
+
+<input type="radio" name="gender" value="Female"> Female
+
+
+<input type="radio" name="gender" value="Other"> Other
+
+
+</div>
+
+
+<label>Department</label>
+
+
+<select name="department" id="department" onchange="updateDoctors()">
+    <option value="">Select Department</option>
+    <option>General Medicine</option>
+    <option>Cardiology</option>
+    <option>Neurology</option>
+    <option>Orthopedics</option>
+    <option>ENT</option>
+    <option>Dermatology</option>
+    <option>Pediatrics</option>
+</select>
+
+
+<label>Select Doctor</label>
+
+
+<select name="doctor" id="doctor">
+    <option value="">Select Doctor</option>
+</select>
+
+
+
+<label>Appointment Date</label>
+
+
+<input type="date" id="date" name="date" required>
+
+
+
+<label>Symptoms</label>
+
+
+<textarea name="symptoms" required></textarea>
+
+
+<div class="button">
+
+
+<button class="submit" type="submit">
+Book Appointment
+</button>
+
+
+<button class="reset" type="reset">
+Reset
+</button>
+
+
+</div>
+
+
+</form>
+
+
+<div class="footer">
+
+
+© 2026 City Care Hospital
+
+
+</div>
+
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
